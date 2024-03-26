@@ -21,6 +21,11 @@ class UserService {
   static async deleteUser(id) {
     return await UserModel.delete(id);
   }
+
+  static async getUsersNameAndEmail() {
+    const users = await UserModel.findAll();
+    return users.map(user => ({ name: user.username, email: user.email }));
+  }
 }
 
 module.exports = UserService;

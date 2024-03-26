@@ -50,6 +50,17 @@ class UserController {
       next(error);
     }
   }
+
+  static async getUsersNameAndEmail(req, res, next) {
+    try {
+      const users = await UserService.getUsersNameAndEmail();
+      res.json(users);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+
 }
 
 module.exports = UserController;
